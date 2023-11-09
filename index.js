@@ -21,19 +21,9 @@ app.get('/service-worker.js', (req, res) => {
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  const filePath = path.join(__dirname, 'html', 'menu.html');
-  
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading menu.html:', err);
-      res.status(500).send('Internal Server Error');
-    } else {
-      res.send(data);
-    }
-  });
+app.get("", (req, res) => {
+  res.redirect("/html/menu.html");
 });
-
 const skins = [
   'url("/img/skins/logo.png")',
   'url("/img/skins/skin.png")',

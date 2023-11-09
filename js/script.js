@@ -821,7 +821,7 @@ document.getElementById('ushki').style.backgroundImage = 'url("/img/skins/zayush
           }, 200);
     
   }, 1000);
-
+updateRecord(levelcount)
 randomblock()
 
 }
