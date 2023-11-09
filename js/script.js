@@ -328,6 +328,8 @@ document.getElementById("bibbudopt").style.backgroundColor = 'rgb(235, 60, 53)'
     },5000)
   }, 3000);
 }
+
+
 var intd = setInterval(dwad,17000)
 dwad()
 setInterval(() =>{
@@ -419,26 +421,28 @@ document.getElementById('ushki').style.display = 'none'
 }, random(2000,4500));
 }
 
-
-if (localStorage.skin == 6) {
-
-
-dwdd()
-function dwdd() {
-      block.style.backgroundImage = 'url("/img/skins/benat_open.png")'
-      setTimeout(() => {
-        block.style.transition = 'transform 1s ease';
-        dawfdw()
-      }, 4000);
-  }
-  function dawfdw() {
+function r1() {
       block.style.backgroundImage = 'url("/img/skins/benat_close.png")'
-      setTimeout(() => {
+        block.style.transition = 'transform 1s ease';
+
+}
+function r2() {
+   block.style.backgroundImage = 'url("/img/skins/benat_open.png")'
         block.style.transition = 'transform 0.3s ease';
-        
-        dwdd()
-      }, 1500);
-    }
+}
+if (localStorage.skin == 6) {
+  gw()
+function gw() {
+  
+  r1();
+
+  setTimeout(() => {
+    r2();
+
+    setTimeout(gw, 3000);
+  }, 6000);
+}
+
 }
 
 

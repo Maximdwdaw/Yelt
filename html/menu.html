@@ -145,7 +145,7 @@ right: 0;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
       width: 300px;
-      height: 120px;
+      height: auto;
       font-size: 55px;
       border-radius: 40px;
       border: none;
@@ -191,7 +191,7 @@ right: 0;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
       width: 300px;
-      height: 130px;
+      height: auto;
       font-size: 55px;
       border-radius: 40px;
       border: none;
@@ -220,7 +220,7 @@ right: 0;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
       width: 450px;
-      height: 100px;
+      height: auto;
       font-size: 55px;
       border-radius: 40px;
       border: none;
@@ -250,7 +250,7 @@ right: 0;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
       width: 450px;
-      height: 100px;
+      height: auto;
       font-size: 55px;
       border-radius: 40px;
       border: none;
@@ -287,7 +287,7 @@ left: 2px;
       display: none;
     }
     #play {
-      position: absolute;
+      position: fixed;
       width: 260px;
       height: 200px;
       display: block;
@@ -302,7 +302,7 @@ left: 2px;
       display: block;
       left: 50%; /* Задайте желаемое значение для горизонтального позиционирования */
   transform: translateX(-50%); /* Центрирование по горизонтали */
-      bottom: 28%;
+      bottom: 25%;
       font-size: 25px;
       border-radius: 20px;
       font-size: 35px;
@@ -414,8 +414,13 @@ left: 2px;
         transform: rotate(360deg);
       }
     }
+
+    #f1 {
+      transition: transform 0.5s ease;
+    }
     #version {
   
+      transition: transform 0.5s ease;
   position: fixed;
   bottom: 40px;
   width: 80%;
@@ -846,8 +851,23 @@ else if (localStorage.size == 3) {
 
 const ddw = document.getElementById("selected")
 
+const d = document.getElementById("version")
+let startX
+d.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
 
+d.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const deltaX = endX - startX;
+if (deltaX < 0) {
+console.log(deltaX)
+d.style.transform = 'translate(-200%)'
+document.getElementById("f1").style.transform = 'translate(-200%)'
+
+}})
   </script>
+  <div id="f1">
   <select id="selected" name="my_dropdown">
     <option value="2">Нормально</option>
     <option value="1">Класика</option>
@@ -873,7 +893,7 @@ const ddw = document.getElementById("selected")
   <button onclick="document.location.replace('tables.html')" id="records">Рекорди</button>
   <input placeholder="Ведіть id гри" id="da">
   <button onclick="document.location.replace('createmap.html')" id="recordsd">Створити карту</button>
-  <button onclick="o()" id="editsize">Edit Size</button>
+  <button onclick="o()" id="editsize">Змінити розмір гри</button>
   <button onclick="checkOnlineState()" id="coop">Мультиплеєр</button>
   <button onclick="blockmain()" id="dodatkovo">Ще...</button>  
   <h1 id="nick">...</h1>
@@ -884,6 +904,7 @@ const ddw = document.getElementById("selected")
   </div>
   </div>
 <input type="range" min="1" max="3"  id="odvalue" class="my-slider">
+</div>
 </body>
 
 </html>
