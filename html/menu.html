@@ -4,7 +4,8 @@
 <head>
   <link rel="manifest" href="/manifest.json">
   <meta name="msapplication-TileColor" content="#da532c">
-  <link rel="icon" href="/img/logo.png">
+  <link rel="icon" href="/img/skins/skin.png">
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
@@ -144,7 +145,7 @@ right: 0;
       top: 0%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 90%;
+      width: auto;
       height: auto;
       font-size: 55px;
       border-radius: 30px;
@@ -190,7 +191,7 @@ right: 0;
       top: 15%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 90%;
+      width:auto;
       height: auto;
       font-size: 55px;
       border-radius: 30px;
@@ -219,7 +220,7 @@ right: 0;
       top:40%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 100%;
+      width: auto;
       height: auto;
       font-size: 55px;
       border-radius: 30px;
@@ -249,7 +250,7 @@ right: 0;
       top:55%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 95%;
+      width: auto;
       height: auto;
       font-size: 55px;
       border-radius: 30px;
@@ -480,7 +481,7 @@ border: none;
 
     }
     #g{
-    
+    display: none;
       position: fixed;
       bottom: 0;
       left: 0;
@@ -892,7 +893,7 @@ document.getElementById("f1").style.transform = 'translate(-200%)'
 
 }})
   </script>
-  <div id="g">Встановіть у режимі PWA</div>
+  <div id="g">Ви у режимі офлайн</div>
   <div id="f1">
   <select id="selected" name="my_dropdown">
     <option value="2">Нормально</option>
@@ -918,7 +919,7 @@ document.getElementById("f1").style.transform = 'translate(-200%)'
 <div id="ps">
   <button onclick="document.location.replace('createmap.html')" id="recordsd">Створити карту</button>
   <button onclick="o()" id="editsize">Змінити розмір гри</button>
-  <button onclick="checkOnlineState()" id="coop">Мультиплеєр</button>
+  <button onclick="checkOnlineState()" id="coop">Коператив</button>
   <button onclick="document.location.replace('tables.html')" id="records">Рекорди</button>
 </div>
 
@@ -940,10 +941,9 @@ document.getElementById("f1").style.transform = 'translate(-200%)'
 
 
 <script>
-  if (window.matchMedia('(display-mode: standalone)').matches) {
-document.getElementById("g").style.display = "none"
-} 
-
+if (!navigator.onLine) {
+document.getElementById("g").style.display = "block"
+}
 </script>
 
 

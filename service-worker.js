@@ -8,6 +8,7 @@ const STATIC_RESOURCES = [
   '/js/script.js',
   '/img/logo.png',
   '/img/end.png',
+  '/version.json',
 
 
 

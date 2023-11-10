@@ -2,10 +2,10 @@
   "name": "test",
   "version": "3.9.8",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index",
-    "setv":"node index.js",
+    "start": "nodemon server",
+    "setv":"node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Maxim",
