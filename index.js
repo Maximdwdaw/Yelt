@@ -21,7 +21,10 @@ app.get('/service-worker.js', (req, res) => {
 
 app.use(express.json());
 
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
+  res.redirect("/html/menu.html");
+});
+app.get("/main", (req, res) => {
   res.redirect("/html/menu.html");
 });
 const skins = [
