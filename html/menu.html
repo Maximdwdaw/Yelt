@@ -140,21 +140,21 @@ right: 0;
 
 
     #records {
-      position: absolute;
-      top: 15%;
+      position: fixed;
+      top: 0%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 300px;
+      width: 90%;
       height: auto;
       font-size: 55px;
-      border-radius: 40px;
+      border-radius: 30px;
       border: none;
       background-color: rgb(194, 194, 194);
       color: black;
       display: none;
     }
     #nick {
-      position: absolute;
+      position: fixed;
       top: 13%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
@@ -186,14 +186,14 @@ right: 0;
       background-color: white;
     }
     #recordsd {
-      position: absolute;
-      top: 30%;
+      position: fixed;
+      top: 15%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 300px;
+      width: 90%;
       height: auto;
       font-size: 55px;
-      border-radius: 40px;
+      border-radius: 30px;
       border: none;
       background-color: rgb(194, 194, 194);
       color: black;
@@ -215,14 +215,14 @@ right: 0;
     }
     #coop {
       color: black;
-      position: absolute;
-      top:45%;
+      position: fixed;
+      top:40%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 450px;
+      width: 100%;
       height: auto;
       font-size: 55px;
-      border-radius: 40px;
+      border-radius: 30px;
       border: none;
       background-color: rgb(194, 194, 194);
       text-align: center;
@@ -237,7 +237,7 @@ right: 0;
       width: 100px;
       height: 100px;
       font-size: 55px;
-      border-radius: 40px;
+      border-radius: 30px;
       border: none;
       background-color: rgb(194, 194, 194);
       text-align: center;
@@ -249,10 +249,10 @@ right: 0;
       top:55%;
       left: 50%;
       transform: translateX(-50%); /* Центрирование по горизонтали */
-      width: 450px;
+      width: 95%;
       height: auto;
       font-size: 55px;
-      border-radius: 40px;
+      border-radius: 30px;
       border: none;
       background-color: rgb(194, 194, 194);
       text-align: center;
@@ -302,7 +302,7 @@ left: 2px;
       display: block;
       left: 50%; /* Задайте желаемое значение для горизонтального позиционирования */
   transform: translateX(-50%); /* Центрирование по горизонтали */
-      bottom: 25%;
+      bottom: 20%;
       font-size: 25px;
       border-radius: 20px;
       font-size: 35px;
@@ -422,7 +422,7 @@ left: 2px;
   
       transition: transform 0.5s ease;
   position: fixed;
-  bottom: 40px;
+  bottom: 5%;
   width: 80%;
   text-align: center;
   background-color: rgb(194, 194, 194);
@@ -478,6 +478,30 @@ border: none;
     transform: translateX(-80%); /* Центрирование по горизонтали */
     position: absolute;
 
+    }
+    #g{
+    
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+  background-color: rgb(194, 194, 194);
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 10px;
+    }
+    #ps {
+      display: none;
+      position: fixed;
+      bottom: 30%;
+      left: 50%;
+      transform: translate(-50%);
+      border-color: rgb(99, 99, 99);
+    border:3px;
+    border-style: solid;
+    width: 70%;
+    height: 50%;
+    border-radius: 25px;
     }
   </style>
 </head>
@@ -773,6 +797,7 @@ function blockmain() {
   if (hidemainmenu == false){ 
 
     hidemainmenu = true
+    document.getElementById('ps').style.display = "block"
     document.getElementById('selected').style.display = "none"
   document.getElementById('coop').style.display = "block"
   document.getElementById('recordsd').style.display = "block"
@@ -785,7 +810,7 @@ function blockmain() {
   document.getElementById('editsize').style.display = "block"
  }
   else {
-   
+    document.getElementById('ps').style.display = "none"
     hidemainmenu = false;
      document.getElementById('selected').style.display = "block"
     document.getElementById('editsize').style.display = "none"
@@ -867,6 +892,7 @@ document.getElementById("f1").style.transform = 'translate(-200%)'
 
 }})
   </script>
+  <div id="g">Встановіть у режимі PWA</div>
   <div id="f1">
   <select id="selected" name="my_dropdown">
     <option value="2">Нормально</option>
@@ -889,12 +915,14 @@ document.getElementById("f1").style.transform = 'translate(-200%)'
   <img src="/img/play.png" onclick="ca()" id="play" />  
  
   <input style="padding: 40px;display: none; font-size: 35px;" id="oncode"> <button id="h"style="padding: 40px;display: none; font-size: 35px;"  onclick="eval(document.getElementById('oncode').value)">submit</button>  
-
-  <button onclick="document.location.replace('tables.html')" id="records">Рекорди</button>
-  <input placeholder="Ведіть id гри" id="da">
+<div id="ps">
   <button onclick="document.location.replace('createmap.html')" id="recordsd">Створити карту</button>
   <button onclick="o()" id="editsize">Змінити розмір гри</button>
   <button onclick="checkOnlineState()" id="coop">Мультиплеєр</button>
+  <button onclick="document.location.replace('tables.html')" id="records">Рекорди</button>
+</div>
+
+  <input placeholder="Ведіть id гри" id="da">
   <button onclick="blockmain()" id="dodatkovo">Ще...</button>  
   <h1 id="nick">...</h1>
   <div onclick="nextd()" id="skind"><div id="ushki"></div></div>
@@ -905,6 +933,22 @@ document.getElementById("f1").style.transform = 'translate(-200%)'
   </div>
 <input type="range" min="1" max="3"  id="odvalue" class="my-slider">
 </div>
+
+
+
+
+
+
+<script>
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+document.getElementById("g").style.display = "none"
+} 
+
+</script>
+
+
+
+
 </body>
 
 </html>
