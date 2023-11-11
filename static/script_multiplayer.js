@@ -37,6 +37,9 @@ socket.on("player move", (data) => {
   }
 });
 
+
+
+
 socket.on("anim",(data) => {
   console.log(data)
   enemy.style.animationPlayState = 'running';
